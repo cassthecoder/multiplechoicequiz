@@ -7,6 +7,11 @@ h2{
 	color:#FFFFFF;
 }
 
+#score{
+	color:white;
+}
+
+
 .jumbotron{
 	background-image: url("https://image.freepik.com/free-vector/grey-linen-texture-background_1053-253.jpg");
 	background-size: cover;

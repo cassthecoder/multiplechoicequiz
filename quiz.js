@@ -15,17 +15,15 @@ class Question{
 	constructor(q,answer, choices, points){
 	this.q=q;
 	this.answer = answer;
-	this.choices = choices;
 	this.points=points;
 	}
 }
 
-var q1= new Question("What is 5+5?","10",[10,25,55],1);
-var q2= new Question("What is 4x2?","8",[42,6,8],1);
-var q3= new Question("What is 60/5?","12",[65,11,12],1);
-var q4= new Question("What is the square root of 225?","15",[15,25,5],1);
-var q5= new Question("What is 12+0?","12"[120,12,13],1);
-var points=0;
+var q1= new Question("What is 5+5?","10",1);
+var q2= new Question("What is 4x2?","8",1);
+var q3= new Question("What is 60/5?","12",1);
+var q4= new Question("What is the square root of 225?","15",1);
+var q5= new Question("What is 12+0?","12",1);
 
 document.getElementById("q1").innerHTML=q1.q;
 document.getElementById("q2").innerHTML=q2.q;
@@ -34,51 +32,70 @@ document.getElementById("q4").innerHTML=q4.q;
 document.getElementById("q5").innerHTML=q5.q;
 
 
+
+
 function checkAnswer(){
 
-	var choices = document.getElementsByName("answer1");
-	for(var i=0;i<=choices.length;i++){
-		if (choices[i].checked){
-			if (choices[i].value == q1.answer){
-				points++;
-			}
-		}
+	var points =0;
+	var questOne = document.getElementsByName("answer1");
+	var questTwo = document.getElementsByName("answer2");
+	var questThree = document.getElementsByName("answer3");
+	var questFour = document.getElementsByName("answer4");
+	var questFive = document.getElementsByName("answer5");
+
+	for (var i = 0; i < questOne.length; i++) {
+	    if (questOne[i].type == "radio") {
+	        if(questOne[i].checked == true)
+	        {
+	        	if(questOne[i].value==q1.answer){
+	        		points++;
+	        	}
+	        }
+	    }
 	}
 
-	choices = document.getElementsByName("answer2");
-	for(var j=0;j<=choices.length;j++){
-		if (choices[j].checked){
-			if (choices[j].value == q2.answer){
-				points++;
-			}
-		}
+	for (var i = 0; i < questTwo.length; i++) {
+	    if (questTwo[i].type == "radio") {
+	        if(questTwo[i].checked == true)
+	        {
+	        	if(questTwo[i].value==q2.answer){
+	        		points++;
+	        	}
+	        }
+	    }
 	}
 
-	choices = document.getElementsByName("answer3");
-	for(var k=0;k<=choices.length;k++){
-		if (choices[k].checked){
-			if (choices[k].value == q3.answer){
-				points++;
-			}
-		}
+	for (var i = 0; i < questThree.length; i++) {
+	    if (questThree[i].type == "radio") {
+	        if(questThree[i].checked == true)
+	        {
+	        	if(questThree[i].value==q3.answer){
+	        		points++;
+	        	}
+	        }
+	    }
 	}
 
-	choices = document.getElementsByName("answer4");
-	for(var l=0;l<=choices.length;l++){
-		if (choices[l].checked){
-			if (choices[l].value == q4.answer){
-				points++;
-			}
-		}
+	for (var i = 0; i < questFour.length; i++) {
+	    if (questFour[i].type == "radio") {
+	        if(questFour[i].checked == true)
+	        {
+	        	if(questFour[i].value==q4.answer){
+	        		points++;
+	        	}
+	        }
+	    }
 	}
-	
- 	choices = document.getElementsByName("answer1");
-	for(var m=0;m<=choices.length;m++){
-		if (choices[m].checked){
-			if (choices[m].value == q5.answer){
-				points++;
-			}
-		}
+
+	for (var i = 0; i < questFive.length; i++) {
+	    if (questFive[i].type == "radio") {
+	        if(questFive[i].checked == true)
+	        {
+	        	if(questFive[i].value==q5.answer){
+	        		points++;
+	        	}
+	        }
+	    }
 	}
 
 	document.getElementById("score").innerHTML="You have received " +points+ "/5 points";
